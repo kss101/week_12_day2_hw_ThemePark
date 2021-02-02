@@ -1,7 +1,9 @@
+import attractions.Attraction;
 import attractions.Dodgems;
 import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 import stalls.CandyflossStall;
 import stalls.IceCreamStall;
 import stalls.ParkingSpot;
@@ -45,6 +47,15 @@ public class ThemeParkTest {
         assertEquals(2, this.themePark.getAttractions().size());
         assertEquals("Bumper Cars", this.themePark.getAttractions().get(0).getName());
         assertEquals("Blue Ridge", this.themePark.getAttractions().get(1).getName());
+    }
+
+    @Test
+    public void canVisitAttraction(){
+        Visitor visitor = new Visitor(13, 1.60,17.50);
+        Attraction visitedAttraction = dodgems;
+        this.themePark.visit(visitor, visitedAttraction);
+        assertEquals(1, visitedAttraction.getVisitCount());
+        assertEquals("Bumper Cars", visitor.getVisitedAttraction().get(0).getName());
     }
 }
 
