@@ -2,6 +2,7 @@ package attractions;
 
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,5 +27,16 @@ public class PlaygroundTest {
     @Test
     public void hasVisitCount() {
         assertEquals(0, playground.getVisitCount());
+    }
+
+    @Test
+    public void checkVisitorIsYoungEnough(){
+        Visitor visitor = new Visitor(9, 1.4,7.50);
+        assertEquals(true,  playground.isAllowedTo(visitor));
+    }
+    @Test
+    public void checkVisitorIsTooOld(){
+        Visitor visitor = new Visitor(19, 1.74,17.50);
+        assertEquals(false,  playground.isAllowedTo(visitor));
     }
 }
