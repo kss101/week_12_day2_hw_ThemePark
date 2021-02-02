@@ -1,4 +1,5 @@
 import attractions.Attraction;
+import behaviours.IReviewed;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -29,7 +30,9 @@ public class ThemePark {
     public void addStall(Stall newStall){
         stalls.add(newStall);
     }
+
     public ArrayList<Stall> getStalls(){
         return stalls;
     }
+
 }
